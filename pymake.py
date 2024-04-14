@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 import scripts.new_src_file as nsf
 import scripts.new_cxx_project as ncp
 import scripts.new_src_dir as nsd

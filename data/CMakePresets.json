@@ -76,7 +76,7 @@
 		{
 			"name": "clang18-base",
 			"displayName": "Clang 18 Base",
-            "hidden": true,
+			"hidden": true,
 			"inherits": "clang-base",
 			"cacheVariables": {
                 "CMAKE_C_COMPILER": "clang-18",
@@ -100,7 +100,7 @@
 				"CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS} -O3"
 
 			}
-		},
+		}
         
     ]
 }
