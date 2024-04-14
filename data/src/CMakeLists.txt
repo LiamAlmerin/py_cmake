@@ -2,7 +2,6 @@
 project(${PROJECT_NAME})
 
 set(TARGET_SRCS
-	main.cpp
 #	END_TARGET_SRCS
 )
 
