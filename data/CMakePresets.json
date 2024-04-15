@@ -9,7 +9,7 @@
             "installDir": "${sourceDir}/install/${presetName}",
 			
 			"environment": {
-				"MSVC_FLAGS": "/permissive- /W4 /w44365 /external:W3"
+				"MSVC_FLAGS": "/permissive- /W4 /w44365 /external:W3 /EHsc"
 			},
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
@@ -30,7 +30,9 @@
                 "strategy": "external"
             },
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"            }
+                "CMAKE_BUILD_TYPE": "Debug" ,
+				"CMAKE_CXX_FLAGS": "$env{MSVC_FLAGS}"
+				}
         },
         {
             "name": "x64-release",
@@ -38,7 +40,7 @@
             "inherits": "x64-debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
-				"CMAKE_CXX_FLAGS": "$env{MSVC_FLAGS} /O2 /Ob3 /Qfast_transcendentals"
+				"CMAKE_CXX_FLAGS": "$env{MSVC_FLAGS} /O2 /Qfast_transcendentals"
             }
         },
 		{
@@ -60,7 +62,8 @@
             "displayName": "Clang Debug",
             "inherits": "clang-base",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS}"
             }
 		},
 		{
@@ -88,7 +91,8 @@
             "displayName": "Clang 18 Debug",
             "inherits": "clang18-base",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS}"
             }
 		},
 		{
