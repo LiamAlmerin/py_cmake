@@ -7,5 +7,5 @@ set(TARGET_SRCS
 
 # Add source to this project's executable.
 target_sources (${TARGET_NAME_0} 
-	PRIVATE FILES ${TARGET_SRCS}
+	PRIVATE ${TARGET_SRCS}
 )
