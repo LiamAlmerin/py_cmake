@@ -19,6 +19,11 @@ def newCMakeProject(script_dir, project_name):
     with open(project_name + '/CMakePresets.json', 'w') as f:
         f.write(presets_filedata)
 
+    with  open(script_dir + '/data/.clang-format') as f:
+        format_filedata = f.read()
+    with open(project_name + '/.clang-format', 'w') as f:
+        f.write(format_filedata)
+
     with open(script_dir + '/data/src/CMakeLists.txt') as f:
         cmakelists_src_data = f.read()
     with open(project_name + '/src/CMakeLists.txt', 'w') as f:
