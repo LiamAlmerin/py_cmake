@@ -22,6 +22,7 @@ add_subdirectory(src)
 set_property(TARGET ${TARGET_NAME_0} 
 	PROPERTY CXX_STANDARD 20
 )
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(BIN_DESTINATION 
 	bin
