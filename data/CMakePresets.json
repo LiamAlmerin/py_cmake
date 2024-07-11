@@ -22,8 +22,8 @@
             }
         },
         {
-            "name": "x64-debug",
-            "displayName": "x64 Debug",
+            "name": "wind",
+            "displayName": "Windows x64 Debug",
             "inherits": "windows-base",
             "architecture": {
                 "value": "x64",
@@ -35,9 +35,9 @@
 				}
         },
         {
-            "name": "x64-release",
-            "displayName": "x64 Release",
-            "inherits": "x64-debug",
+            "name": "winr",
+            "displayName": "Windows x64 Release",
+            "inherits": "wind",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
 				"CMAKE_CXX_FLAGS": "$env{MSVC_FLAGS} /O2 /Qfast_transcendentals"
@@ -58,7 +58,7 @@
             }
         },
         {
-            "name": "clang-debug",
+            "name": "cd",
             "displayName": "Clang Debug",
             "inherits": "clang-base",
             "cacheVariables": {
@@ -67,7 +67,7 @@
             }
 		},
 		{
-			"name": "clang-release",
+			"name": "cr",
 			"displayName": "Clang Release",
 			"inherits": "clang-base",
 			"cacheVariables": {
@@ -87,7 +87,7 @@
             }
 		},
         {
-            "name": "clang18-debug",
+            "name": "c18d",
             "displayName": "Clang 18 Debug",
             "inherits": "clang18-base",
             "cacheVariables": {
@@ -96,7 +96,7 @@
             }
 		},
 		{
-			"name": "clang18-release",
+			"name": "c18r",
 			"displayName": "Clang 18 Release",
 			"inherits": "clang18-base",
 			"cacheVariables": {
