@@ -14,7 +14,7 @@ def newHeader(cur_dir,file_path_name):
     with open(f'{cur_dir}/{filepath}', 'w') as h:
         h.write(f'#ifndef {header_guard}\n')
         h.write(f'#define {header_guard}\n\n\n\n')
-        h.write(fr'#endif \\ {header_guard}'+'\n')
+        h.write(fr'#endif // {header_guard}'+'\n')
 
 # if args.cpp_file:
 def newCpp(cur_dir, file_path_name):
