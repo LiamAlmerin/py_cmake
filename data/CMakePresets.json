@@ -1,70 +1,69 @@
 ﻿{
     "version": 3,
     "configurePresets": [
-        {
-            "name": "windows-base",
-            "hidden": true,
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build/${presetName}",
-            "installDir": "${sourceDir}/install/${presetName}",
-			
+    {
+      "name": "windows-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "installDir": "${sourceDir}/install/${presetName}",
 			"environment": {
-				"MSVC_FLAGS": "/permissive- /W4 /w44365 /external:W3 /EHsc"
-			},
-            "cacheVariables": {
-                "CMAKE_C_COMPILER": "cl.exe",
-                "CMAKE_CXX_COMPILER": "cl.exe" 
-            },
-            "condition": {
-                "type": "equals",
-                "lhs": "${hostSystemName}",
-                "rhs": "Windows"
-            }
-        },
-        {
-            "name": "wind",
-            "displayName": "Windows x64 Debug",
-            "inherits": "windows-base",
-            "architecture": {
-                "value": "x64",
-                "strategy": "external"
-            },
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug" ,
-				"CMAKE_CXX_FLAGS": "$env{MSVC_FLAGS}"
-				}
-        },
-        {
-            "name": "winr",
-            "displayName": "Windows x64 Release",
-            "inherits": "wind",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release",
-				"CMAKE_CXX_FLAGS": "$env{MSVC_FLAGS} /O2 /Qfast_transcendentals"
-            }
-        },
-		{
-            "name": "clang-base",
-            "hidden": true,
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build/${presetName}",
-            "installDir": "${sourceDir}/install/${presetName}",
+        "MSVC_FLAGS": "/permissive- /W4 /w44365 /external:W3 /EHsc"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl.exe",
+        "CMAKE_CXX_COMPILER": "cl.exe" 
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "wind",
+      "displayName": "Windows x64 Debug",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug" ,
+        "CMAKE_CXX_FLAGS": "$env{MSVC_FLAGS}"
+      }
+    },
+    {
+      "name": "winr",
+      "displayName": "Windows x64 Release",
+      "inherits": "wind",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "$env{MSVC_FLAGS} /O2 /Qfast_transcendentals"
+      }
+    },
+    {
+      "name": "clang-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "installDir": "${sourceDir}/install/${presetName}",
 			"environment": {
-				"CLANG_FLAGS": "-pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
-			},
-            "cacheVariables": {
-                "CMAKE_C_COMPILER": "clang",
-                "CMAKE_CXX_COMPILER": "clang++"
-            }
-        },
-        {
-            "name": "cd",
-            "displayName": "Clang Debug",
-            "inherits": "clang-base",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug",
-				"CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS}"
-            }
+        "CLANG_FLAGS": "-pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    },
+    {
+      "name": "cd",
+      "displayName": "Clang Debug",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS}"
+      }
 		},
 		{
 			"name": "cr",
@@ -73,7 +72,6 @@
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Release",
 				"CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS} -O3"
-
 			}
 		},
 		{
@@ -82,18 +80,18 @@
 			"hidden": true,
 			"inherits": "clang-base",
 			"cacheVariables": {
-                "CMAKE_C_COMPILER": "clang-18",
-                "CMAKE_CXX_COMPILER": "clang++-18"
-            }
-		},
-        {
-            "name": "c18d",
-            "displayName": "Clang 18 Debug",
-            "inherits": "clang18-base",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "clang-18",
+        "CMAKE_CXX_COMPILER": "clang++-18"
+      }
+    },
+    {
+      "name": "c18d",
+      "displayName": "Clang 18 Debug",
+      "inherits": "clang18-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
 				"CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS}"
-            }
+      }
 		},
 		{
 			"name": "c18r",
@@ -102,9 +100,39 @@
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Release",
 				"CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS} -O3"
-
+			}
+		},
+		{
+      "name": "gcc-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "installDir": "${sourceDir}/install/${presetName}",
+			"environment": {
+				"GCC_FLAGS": "-pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
+			},
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
+      "name": "gd",
+      "displayName": "GCC Debug",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "$env{GCC_FLAGS}"
+      }
+		},
+		{
+			"name": "gr",
+			"displayName": "GCC Release",
+			"inherits": "gcc-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release",
+				"CMAKE_CXX_FLAGS": "$env{GCC_FLAGS} -O3"
 			}
 		}
-        
-    ]
+  ]
 }
