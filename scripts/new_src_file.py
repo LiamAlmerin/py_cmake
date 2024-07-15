@@ -2,11 +2,12 @@ import datetime as dt
 
 # if args.header:
 def newHeader(cur_dir,file_path_name):
-    filepath = f'src/{file_path_name}.hpp'
+    filepath = f'{file_path_name}.hpp'
     if '/' in file_path_name:
         dir_file = file_path_name.split('/')
         filename = f'{dir_file[-1]}'
     else:
+        filepath = f'src/{filepath}'
         filename = f'{file_path_name}'
     now = dt.datetime.now(dt.timezone.utc)
     header_numstr = now.strftime("%Y%m%d%H%M%S%f")
@@ -21,7 +22,7 @@ def newCpp(cur_dir, file_path_name):
     if '/' in file_path_name:
         dir_file = file_path_name.split('/')
         filename = f'{dir_file[-1]}.cpp'
-        filepath = "src/"+"/".join(dir_file[:-1])
+        filepath = '/'.join(dir_file[:-1])
     else:
         filename = f'{file_path_name}.cpp'
         filepath = f'src'
