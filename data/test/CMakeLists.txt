@@ -5,6 +5,6 @@ set(TARGET_SRCS
 )
 
 # Add source to this project's executable.
-target_sources (test 
+target_sources (my_test 
 	PRIVATE ${TARGET_SRCS}
 )
