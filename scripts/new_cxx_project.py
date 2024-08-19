@@ -6,7 +6,9 @@ def newCMakeProject(script_dir, project_name):
     else:
         print(f"The directory '{project_name + '/src'}' already exists./n"+
               "Overwriting project files")
-
+    if not os.path.exists(project_name + '/test'):
+        os.makedirs(project_name + '/test')
+        
     with open(script_dir + '/data/CMakeLists.txt') as f:
         cmakelists_filedata = f.read().replace('default_project', project_name)
         cmakelists_filedata = cmakelists_filedata.replace('default_target', project_name)
@@ -28,3 +30,8 @@ def newCMakeProject(script_dir, project_name):
         cmakelists_src_data = f.read()
     with open(project_name + '/src/CMakeLists.txt', 'w') as f:
         f.write(cmakelists_src_data)
+        
+    with open(script_dir + '/data/test/CMakeLists.txt') as f:
+        cmakelists_test_data = f.read()
+    with open(project_name + '/test/CMakeLists.txt', 'w') as f:
+        f.write(cmakelists_test_data)
