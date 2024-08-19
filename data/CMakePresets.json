@@ -1,13 +1,13 @@
 ﻿{
-    "version": 3,
-    "configurePresets": [
+  "version": 3,
+  "configurePresets": [
     {
       "name": "windows-base",
       "hidden": true,
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "installDir": "${sourceDir}/install/${presetName}",
-			"environment": {
+      "environment": {
         "MSVC_FLAGS": "/permissive- /W4 /w44365 /external:W3 /EHsc"
       },
       "cacheVariables": {
@@ -48,7 +48,7 @@
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "installDir": "${sourceDir}/install/${presetName}",
-			"environment": {
+      "environment": {
         "CLANG_FLAGS": "-pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
       },
       "cacheVariables": {
@@ -64,22 +64,22 @@
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS}"
       }
-		},
-		{
-			"name": "cr",
-			"displayName": "Clang Release",
-			"inherits": "clang-base",
-			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Release",
-				"CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS} -O3"
-			}
-		},
-		{
-			"name": "clang18-base",
-			"displayName": "Clang 18 Base",
-			"hidden": true,
-			"inherits": "clang-base",
-			"cacheVariables": {
+    },
+    {
+      "name": "cr",
+      "displayName": "Clang Release",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS} -O3"
+      }
+    },
+    {
+      "name": "clang18-base",
+      "displayName": "Clang 18 Base",
+      "hidden": true,
+      "inherits": "clang-base",
+      "cacheVariables": {
         "CMAKE_C_COMPILER": "clang-18",
         "CMAKE_CXX_COMPILER": "clang++-18"
       }
@@ -90,33 +90,33 @@
       "inherits": "clang18-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-				"CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS}"
+        "CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS}"
       }
-		},
-		{
-			"name": "c18r",
-			"displayName": "Clang 18 Release",
-			"inherits": "clang18-base",
-			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Release",
-				"CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS} -O3"
-			}
-		},
-		{
+    },
+    {
+      "name": "c18r",
+      "displayName": "Clang 18 Release",
+      "inherits": "clang18-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "$env{CLANG_FLAGS} -O3"
+      }
+    },
+    {
       "name": "gcc-base",
       "hidden": true,
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "installDir": "${sourceDir}/install/${presetName}",
-			"environment": {
-				"GCC_FLAGS": "-pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
-			},
+      "environment": {
+        "GCC_FLAGS": "-pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
+      },
       "cacheVariables": {
         "CMAKE_C_COMPILER": "gcc",
         "CMAKE_CXX_COMPILER": "g++"
       }
     },
-    {
+    {			
       "name": "gd",
       "displayName": "GCC Debug",
       "inherits": "gcc-base",
@@ -124,15 +124,15 @@
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_CXX_FLAGS": "$env{GCC_FLAGS}"
       }
-		},
-		{
-			"name": "gr",
-			"displayName": "GCC Release",
-			"inherits": "gcc-base",
-			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Release",
-				"CMAKE_CXX_FLAGS": "$env{GCC_FLAGS} -O3"
-			}
-		}
+    },
+    {
+      "name": "gr",
+      "displayName": "GCC Release",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "$env{GCC_FLAGS} -O3"
+      }
+    }
   ]
 }
